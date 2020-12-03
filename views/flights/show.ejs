@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flights</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Flight Details</h1>
+    <form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Airline</th>
+          <th>Airport</th>
+          <th>Flight Number</th>
+          <th>Departure</th>
+          <th>Destination</th>
+          <th>Add Destination</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= flight.airline %></td>
+          <td><%= flight.airport %></td>
+          <td><%= flight.flightNo %></td>
+          <td><%= flight.departs %></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2>Destination</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Destination</th>
+          <th>Arrival</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.destinations.forEach(function(d){ %>
+            <div>
+                <%#db.flights.find({flight}).sort({arrival: -1}) %>
+                <%= d.airport %>: <%= d.arrival%>
+            </div>
+            <%  }); %>
+      </tbody>
+    </table><br>
+    <form action="/flights/<%= flight._id %>/destinations" method="POST">
+      <label>Destination Airport:
+          <select name="airport">
+              <option value="DIN" selected>DIN</option>
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+          </select>
+      </label><br>
+      <label>Arrival:
+        <input type="datetime-local" name="arrival">
+      </label><br>
+      <button type="submit">Add Destination</button>
+    </form>
+
+    <h3>Tickets</h3>
+    <table>
+      <thead>
+          <tr>
+              <th>Seat</th>
+              <th>Price</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% tickets.forEach(function(t){ %>
+          <tr>
+              <td><%= t.seat %></td>
+              <td><%= t.price %></td>
+          </tr>
+          <% }) %>
+      </tbody>
+  </table>
+  <a href="/flights/<%= flight._id%>/tickets/new">Add Ticket</a>
+    <h4><a href="/flights/">Home</a></h4>
+  </body>
+</html>

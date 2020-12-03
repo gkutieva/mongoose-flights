@@ -6,3 +6,65 @@ body {
 a {
   color: #00B7FF;
 }
+
+body {
+  font-size: 15px;
+  text-align: center;
+  background-color: rgb(233, 205, 210);
+}
+
+h1 {
+  padding: 20px 0 20px 0;
+  text-align: center;
+}
+
+a {
+  color: #00B7FF;
+  font-size: 16px;
+}
+
+table {
+  display: center;
+  margin: 0 auto;
+  border: none;
+}
+tbody {
+  text-align: center;
+}
+td {
+  padding: 3vh;
+}
+form {
+  display: flex;
+	flex-direction: column;
+	justify-content: left;
+	align-items: left;
+}
+input [type="submit"]{
+  grid-column: span 2;
+  width: 12rem;
+  margin-left: auto;
+}
+.newFlight {
+  display: flex;
+  justify-content: center;
+}
+.details {
+ display: flex;
+ justify-content: center;
+}
+nav {
+  margin-bottom: 5vmin;
+}
+.header {
+  margin: 2vmin;
+}
+#destination{
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(1, minmax(auto, 22rem));
+}
+.newTicket {
+  display: flex;
+  justify-content: center;
+}

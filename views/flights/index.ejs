@@ -7,20 +7,30 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <a href="/">Home</a>
-    <h1>All Flights</h1>
-    <ul>
-        <% flights.forEach(function(f) { %>
-            <li>
-                <form action="/flights/<%=s.id%>?_method=DELETE" class="delete-form" method="POST">  
-                    <button type="submit">X</button>
-                </form>
-                <a href="/flights/<%=f.id%>"><%=f.flight%></a>
-                  -
-                <%= f.apply ? 'apply' : "don't apply" %>  
-            </li>
-        <% }); %>    
-    </ul>
+    <a href="/flights/">All Flights</a> |
     <a href="/flights/new">Add Flight</a>
+    <h1>All Flights</h1>
+    <table id="list">
+        <thead>
+            <tr>
+                <th>Airline</th>
+                <th>Airport</th>
+                <th>Flight<br>Number</th>
+                <th>Departs</th>
+                <th>Flight Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% flights.forEach(function(f) { %>
+            <tr>
+                <td><%= f.airport %></td>
+                <td><%= f.airline %></td>
+                <td><%= f.flightNo %></td>
+                <td><%= f.departs %></td>
+                <td><a href="/flights/<%= f._id %>">DETAILS</a></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flight</title>
+    <link rel="stylesheet" href="/stylesheet/style.css">
+</head>
+<body>
+    <h3>Create New Ticket</h3>
+    <form action="/flights/<%= id %>/tickets" method="POST">
+        <label>Seat:
+            <input type="text" name="seat" required pattern="[A-F][1-9]\d?">
+        </label><br>
+        <label>Price:
+            <input type="text" name="price">
+        <input type="submit" value="Add Ticket">
+    </form>   
+</body>
+</html>
